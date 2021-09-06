@@ -1,3 +1,10 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Votar</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+  </ol>
+</nav>
 <div class="row">
   <div class="col-md-6">
     <h3>Lista de Cursos</h3>
@@ -22,7 +29,7 @@
     {{#each cursos}}
       <tr>
         <th scope="row">{{@index}}</th>
-        <td>{{this.nombre}}</td>
+        <td> <a href="/curso/alumnos/{{this.id}}"> {{this.nombre}}</a> </td>
         <td>{{this.turno}}</td>         
         <td>
           <a href="/cursos/edit/{{this.id}}">
