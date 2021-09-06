@@ -1,0 +1,62 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Votar</a></li>
+    <li class="breadcrumb-item"><a href="/user/user">Usuarios</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Editar Usuario</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-8 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="d-flex justify-content-evenly">
+            <h3 class="text-primary">Editar los datos del Usuario</h3>            
+          </div>
+        </div>
+        {{#each usuario}}
+        <div class="card-body">
+          <form action="/user/update/{{this.id}}?_method=PUT" method="post" >
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control"
+                id="floatingNombre"
+                placeholder="Nombre de Usuario" maxlength="100" value="{{this.nombre}}"
+              />
+              <label for="floatingNombre">Nombre de Usuario</label>
+            </div>
+             <div class="form-floating mb-3">
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password" maxlength="100" 
+              />
+              <label for="floatingPassword">Password</label>
+            </div> 
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                name="confirm_password"
+                class="form-control"
+                id="floatingConfirmPassword"
+                placeholder="Repetir Password" maxlength="100"
+              />
+              <label for="floatingConfirmPassword">Repetir Password</label>
+            </div>            
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary"
+              >Guardar</button>
+            </div>
+          </form>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

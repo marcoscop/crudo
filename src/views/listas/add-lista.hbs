@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-12 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="d-flex justify-content-evenly">
+            <h3 class="text-primary">Ingrese los datos de la Lista</h3>            
+          </div>
+        </div>
+        <div class="card-body">
+          <form action="/listas/addLista" method="post" enctype="multipart/form-data">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control"
+                id="floatingNombre"
+                placeholder="Nombre de la Lista" maxlength="100"
+              />
+              <label for="floatingNombre">Nombre de la Lista</label>
+            </div>
+             <div class="form-floating mb-3">
+              <input
+                type="file"
+                name="img_file"
+                class="form-control"
+                id="floatingImgen"
+                placeholder="Seleccione una imagen" maxlength="100"
+              />
+              <label for="floatingImagen">Seleccione una imagen</label>
+            </div>            
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary"
+              >Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

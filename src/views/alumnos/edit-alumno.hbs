@@ -1,0 +1,66 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Votar</a></li>
+    <li class="breadcrumb-item"><a href="/cursos/renderCursos">Cursos</a></li>
+    <li class="breadcrumb-item"><a href="/curso/alumnos/{{idCurso}}">Lista Alumnos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Editar Alumno</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-12 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="d-flex justify-content-evenly">
+            <h3 class="text-primary">Ingrese los datos del Alumno </h3>            
+          </div>
+        </div>
+        <div class="card-body">
+            {{#with alumno}}
+          <form action="/curso/updateAlumno/{{this.id}}/{{id_curso}}?_method=PUT" method="POST">
+            <div class="form-floating mb-3">
+              <input
+                type="apellido"
+                name="apellido"
+                class="form-control"
+                id="floatingApellido"
+                placeholder="Apellido" maxlength="100"
+                value="{{this.apellido}}"
+              />
+              <label for="floatingApellido">Apellido</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control"
+                id="floatingNombre"
+                placeholder="Nombre" maxlength="100"
+                value="{{this.nombre}}"
+              />
+              <label for="floatingNombre">Nombre</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                name="dni"
+                class="form-control"
+                id="floatingDni"
+                placeholder="D.N.I." maxlength="8"
+                value="{{this.dni}}"
+              />
+              <label for="floatingDni">D.N.I. (sin puntos)</label>
+            </div>            
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary"
+              >Guardar cambios</button>
+            </div>
+          </form>
+          {{/with}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

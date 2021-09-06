@@ -1,0 +1,71 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Votar</a></li>
+    <li class="breadcrumb-item"><a href="/cursos/renderCursos">Cursos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Agregar Curso</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-md-5 mx-auto">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <h3 class="text-white">Agregar Nuevo Curso</h3>
+      </div>
+      <form class="mt-2" action="/cursos/new-curso" method="POST">
+        <div class="form-row">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="nombre_curso"
+              class="form-control"
+              id="nombre_curso"
+              placeholder="Nombre Curso"
+              value="{{nombre_curso}}"
+            />
+            <label for="nombre_curso">Curso</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="turno_curso"
+              class="form-control"
+              id="turno"
+              placeholder="Turno"
+              value="{{turno_curso}}"
+            />
+            <label for="turno">Turno</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary">GUARDAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-5 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="text-primary">Lista de Cursos Creados</h3>
+      </div>
+      <table class="table">        
+          <thead>
+            <tr>
+              <th>CURSO</th>
+              <th>TURNO</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each listaCursos}}
+            <tr>
+              <td>{{this.nombre}}</td>
+              <td>{{this.turno}}</td>
+            </tr>            
+            {{/each}}
+          </tbody>                  
+      </table>
+    </div>
+  </div>
+</div>

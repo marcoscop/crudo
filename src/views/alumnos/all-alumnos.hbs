@@ -1,0 +1,70 @@
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Votar</a></li>
+    <li class="breadcrumb-item"><a href="/cursos/renderCursos">Cursos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Lista Alumnos</li>
+  </ol>
+</nav>
+<div class="row">
+    <div class="col-9">    
+        <h4 class="text-primary">Lista de Alumno de {{this.nombreCurso}}</h4>        
+        <input type="hidden" id="identificadorCurso" value="{{idCurso}}">
+    </div>
+    <div class="col-3">
+        <a href="/curso/addAlumnos/{{idCurso}}"><button class="btn btn-primary">Agregar alumnos</button></a>
+    </div>
+    <hr class="mt-2">
+</div>
+<div class="row mt-4">
+  <div class="table-responsive">
+    <table class="table table-striped text-center table-hover">
+      <thead>
+        <tr>
+          <th scope="col">INDICE</th>
+          <th scope="col">APELLIDO</th>
+          <th scopet="col">NOMBRE</th>
+          <th scope="col">DNI</th>
+          <th colspan="2">ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each listaAlumnos}}
+          <tr>
+            <th scope="row"><button type="button" id="{{id}}" class="open-modal" data-open="mymodal1">{{@key}}</button></th>
+            <td>{{apellido}}</td>
+            <td>{{nombre}}</td>
+            <td>{{dni}}</td>
+            <td> <a href="/curso/editAlumno/{{id}}"> <button class="btn btn-outline-warning"><img src="/img/editar.png" alt="" /></button> </a> </td>
+            <td>
+              <form action="/curso/deleteAlumno/{{id}}/{{id_curso}}?_method=DELETE" method="post">
+                <button class="btn btn-outline-danger"><img src="/img/borrar.png" alt="" /></button>
+              </form>
+            </td>            
+          </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+<div class="mymodal" id="mymodal1">
+  <div class="mymodal-dialog">
+    <header class="mymodal-header">
+      Cambiar Alumno de Seccion
+    </header>
+    <p> Seleccione la Seccion destinada al Alumno </p>
+    <section class="mymodal-content">
+      <select class="form-select" id = "curso" name="select">
+        {{#each curso}}
+          <option  value="{{this.id}}">{{this.nombre}}</option>              
+        {{/each}}
+      </select>
+    </section>          
+    <footer class="mymodal-footer">      
+      <button type="button" class="close-modal btn btn-primary" aria-label="close modal" data-close>
+        Enviar
+      </button>   
+    </footer>          
+  </div>
+</div>
