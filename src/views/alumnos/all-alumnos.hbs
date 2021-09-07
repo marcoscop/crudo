@@ -18,12 +18,13 @@
 </div>
 <div class="row mt-4">
   <div class="table-responsive">
+    <p> <strong class="text-danger">¡ATENCION!</strong> Para cambiar a un Alumno de Seccion haga clic sobre el indice</p>
     <table class="table table-striped text-center table-hover">
       <thead>
         <tr>
           <th scope="col">INDICE</th>
           <th scope="col">APELLIDO</th>
-          <th scopet="col">NOMBRE</th>
+          <th scopet="col">NOMBRES</th>
           <th scope="col">DNI</th>
           <th colspan="2">ACCIONES</th>
         </tr>
@@ -35,10 +36,10 @@
             <td>{{apellido}}</td>
             <td>{{nombre}}</td>
             <td>{{dni}}</td>
-            <td> <a href="/curso/editAlumno/{{id}}"> <button class="btn btn-outline-warning"><img src="/img/editar.png" alt="" /></button> </a> </td>
+            <td> <a href="/curso/editAlumno/{{id}}"> <button class="btn btn-outline-warning"><img src="/img/editar.png" alt="Editar Alumno" title="Editar datos de Alumno" /></button> </a> </td>
             <td>
               <form action="/curso/deleteAlumno/{{id}}/{{id_curso}}?_method=DELETE" method="post">
-                <button class="btn btn-outline-danger"><img src="/img/borrar.png" alt="" /></button>
+                <button class="btn btn-outline-danger"><img src="/img/borrar.png" alt="" title="Eliminar Alumno" /></button>
               </form>
             </td>            
           </tr>
