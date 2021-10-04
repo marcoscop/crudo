@@ -11,9 +11,18 @@ listaController.renderListas = async (req, res) => {
             res.render('listas/all-listas',{
                 listas
             });
+        }else{
+            //req.flash('warning_msg', 'Aun no se han creado listas');
+            const warningMsg = [];
+            warningMsg.push({msg:'Aun no se han creado listas'});
+            res.render('listas/all-listas',
+                warningMsg
+            );
         }
     } catch (error) {
         console.log('|DB-Error--> ' + error);
+        req.flash('errors_msg', 'Se ha producido un error al consultar la Base de Datos');
+        res.redirect('/');
     }
 };
 
